@@ -1,0 +1,538 @@
+/*
+   statusbar-overlay sets the background color for the overlay. Black text is the default when the statusbar plugin is not added. When the
+   statusbar plugin is added, it also adds default setting to make the content white via:
+
+       <preference name="StatusBarStyle" value="lightcontent"/>
+
+   Setting the background color to black will allow the default light content (white text/icons) to show on it. The statusbar plugin is included
+   in the config.xml file and will be added by the CLI when you build locally.
+
+   See https://github.com/apache/cordova-plugin-statusbar
+*/
+#newpasswordstep1{display: none;}
+/*reset*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+        font-family: Verdana;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*Форма логина*/
+
+.list-block  .item-logo  input.input-text, .list-block .item-logo  input.input-text:focus, .list-block .item-logo input.input-text:active {
+    border: 0px;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+}
+
+.list-block .item-logo  input.input-text:active, 
+.list-block .item-logo  input.input-text:focus, .item-logo .btn-main:active, .item-logo  .btn-main:focus{
+    border: 0px;
+    outline: none;
+}
+.item-logo{
+    width: 100%;
+    text-align: left;
+}
+#login-form .list-block .item-title.label{
+    width: 100%;
+    color:#b0bec5;
+    font-size: 14px;
+    height: 16px;
+}
+#login-form .item-content{
+    margin-bottom: 3.7%; 
+}
+.list-block .item-logo  input.input-text::-webkit-input-placeholder {color: #ffffff;}
+
+.list-block .item-logo  input.input-text:-moz-placeholder {color: #ffffff;}
+.logo{
+
+    margin: 0 auto;
+    padding-top: 7.6%; /*115dp;*/
+    margin-bottom: 5.7%; /*36dp;*/  
+    height: 12.7%;/*89dp;*/
+    
+}
+#login-form{
+    width: 70%;
+     margin: 0 auto;
+      text-align: left;  
+}
+.logo-form .label{
+color:#a4b2b9;
+width: 100%;
+display: block;
+font-size: 14px;
+padding-top: 5px;
+padding-bottom: 10px;
+}
+.bottomplansh{
+    width: 100%;
+    text-align: center;
+}
+.page-content.bgBlack{
+background: url('../images/pages/fon.jpg') #12161a;
+background-size:100% 100%;
+color: #fff;
+height: 100%;
+width: 100%;
+position: relative;
+text-align: center;    
+}
+.bottomplansh{
+    position: absolute;
+    width:100%;
+    background: #073e43;
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;    
+    color: #fff;
+    bottom: 0px;
+    box-sizing: padding-box;
+}
+.btn-main{
+    border:0px;
+    border-radius: 25px;
+    width: 80%;
+    padding: 3% 0%;
+    display: block;
+    background: #00897b;
+    color:#fff;
+    margin: 0 auto;
+    margin-top: 5%;
+     margin-bottom: 1.146%;
+    height: 7.65%; /*48dp*/
+    font-size: 15px;
+-webkit-box-shadow: 1px 3px 6px 0px rgba(0, 0, 0, 0.68);
+-moz-box-shadow:    1px 3px 6px 0px rgba(0, 0, 0, 0.68);
+box-shadow:         1px 3px 6px 0px rgba(0, 0, 0, 0.68);
+}
+#forgotpswd{
+  font-size: 14px;  
+  text-align: center;
+  width: 100%;
+  
+}
+.newpasswordstep1{
+  cursor: pointer;
+}
+.popup-standart{
+    background: url('../images/pages/topmodal.png') no-repeat top center #ffffff;
+    background-size: 100% 24vh;
+    width: 90vw;
+    left: 5vw;    /*16pd*/
+    right: 5vw;    /*16pd*/
+    padding-top: 2vh;
+    height: auto;
+    max-height: 100%;
+    padding-bottom: 2vh;
+}
+.popup-standart.phone .content-block{
+       background: url('../images/pages/phonec.png') no-repeat top center;
+    background-size: 7vh 7vh;
+  width: 90vw;
+    left: 5vw;    /*16pd*/
+    right: 5vw;    /*16pd*/
+    padding-top: 24vh; 
+    border-bottom: 1px solid #90a4ae;
+    padding-bottom: 2vh; 
+    text-align: center;
+}
+.popup-standart.info .content-block{
+    background: url('../images/pages/infoc.png') no-repeat top center;
+    background-size: 11vh 11vh;
+  /*  width: 90vw;*/
+    left: 5vw;    /*16pd*/
+    right: 5vw;    /*16pd*/
+    padding-top: 20vh; 
+    border-bottom: 0px solid #90a4ae; 
+
+}
+.info .H2{
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2.55vh;
+    margin-bottom: 2.55vh;
+}
+.info .close-popup{
+    display: inline-block;
+    margin-top: 2.55vh;
+    text-transform: uppercase;
+    color: #586972;
+    width: 95%;
+    text-align: right;
+
+}
+.popup-standart.info .content-block{
+   text-align: left; 
+}
+.popup-standart.phone{
+    text-align: right;
+}
+.content-block .msgreg{
+    color: #00897b;
+    font-size: 80%;
+    text-align: left;
+    
+}
+.popup-selectgroup .content-block p {
+    font-size: 10px;
+}
+
+p.center{
+    text-align: center;
+}
+.popup-newpasswordphone .content-block p{
+    color: #455a64;
+}
+.popup-inner{
+    padding: 20px 0px 0px 20px;
+    
+}
+.popup-inner div.item-title{
+    width: 50%;
+    font-size: 12px;
+    color: #78858b;
+    float: left;
+}
+.popup-inner div.item-input{
+    width: 40%;
+    font-size: 12px;
+    color: #78858b;
+    float: left;
+}
+.popup-inner div.item-input input{
+    border: 0px;
+    width: 100%;
+}
+.popup-standart .button{
+    padding: 0px 15px;
+   border: 0px;
+   display: inline-block;
+}
+.popup-standart .button.close-popup{
+    color: #455a64;
+}
+.popup-standart .button.active{
+    color: #00897b;
+    background: none;
+}
+/*/// форма логина*/
+/* Страница с картой */
+.map {
+position: absolute;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 1000px;
+}
+.purpose{
+  position: absolute;
+  right: 10px;
+  top: 70px;
+  width: 60px;
+  height:60px;
+  border-radius: 60px;
+  background: url('../images/pages/purpus.png') center center no-repeat #00acc1;
+}
+.reload{
+  position: absolute;
+  right: 10px;
+  top: 140px;
+  width: 60px;
+  height:60px;
+  border-radius: 60px;
+  background: url('../images/pages/refrash.png') center center no-repeat #26a69a; 
+}
+.dispetcher{
+  position: absolute;
+  right: 10px;
+  top: 210px;
+  width: 60px;
+  height:60px;
+  border-radius: 60px;
+  background: url('../images/pages/dispath.png') center center no-repeat  #039be5;   
+}
+.registration-form{
+    margin: 0px;
+}
+.reg-content-block{
+    padding: 0px;  
+    margin-top: 4.4625vh;/*28dp*/
+    margin-bottom: 0px;/*28dp*/
+     padding-bottom: 1.146vh; /*8dp*/
+    border-left: 4px solid #26a69a;
+    background: #fff;
+}
+#pageContentRegistration{
+     padding-top: 20px; 
+}
+#pageContentRegistration .page-top{
+    background: transparent;
+    padding-top: 0px;   
+    
+}
+#pageContentRegistration .page-top .left{
+    min-width: 11.475%; /*72dp*/
+    float: left;
+    background: transparent;  
+    padding-left: 2.55%;   /*16dp*/
+    line-height: 23px;
+}
+.page-top .left a{ 
+    color:#ffffff;
+}
+
+#pageContentRegistration  .logo-ico{
+    background: url('../images/pages/manc.png') center top no-repeat ;
+    width: 100%;
+    height: 15.3vh;
+    background-size: contain;
+    float: none;
+    clear: both;
+    position: relative;
+    margin-top: 13.3875vh; /*84dp*/
+}
+.icon{
+   height:  19px;
+   background-size: contain;
+   
+}
+.icon-phone{
+    width: 13px;
+     background: url('../images/pages/telico.jpg') center top no-repeat ;
+  
+}
+.icon-dates{
+   width: 16px;
+      height:  15px;
+     background: url('../images/pages/dates.png') center top no-repeat ; 
+}
+.icon-mapbegin{
+   width: 11px;
+      height:  15px;
+     background: url('../images/pages/map1.png') center top no-repeat ; 
+}
+.icon-mapend{
+   width: 11px;
+      height:  15px;
+     background: url('../images/pages/map2.png') center top no-repeat ; 
+}
+.icon-rub{
+   width: 12px;
+      height:  15px;
+     background: url('../images/pages/rub.png') center top no-repeat ; 
+}
+.icon-dist{
+   width: 16px;
+      height:  14px;
+     background: url('../images/pages/path.png') center top no-repeat ; 
+}
+.icon-city{
+    width: 22px;
+    width: 19px;
+    background: url('../images/pages/cityico.jpg') center top no-repeat ;  
+}
+.icon-man{
+    width: 20px;
+    width: 19px;
+    background: url('../images/pages/manico.jpg') center top no-repeat ;  
+}
+
+.icon-bank{
+    width: 18px;
+    width: 18px;
+    background: url('../images/pages/bankico.jpg') center top no-repeat ;  
+}
+
+
+
+html.pixel-ratio-2 .list-block .item-inner:after{
+    background-color: #b0bec5;
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+}
+html.pixel-ratio-2  .list-block .item-inner.Hreg:after {
+    background-color: #00796b;
+}
+#pageContentRegistration  .list-block .item-inner.Hreg {
+   height: 5.7375vh;/*36dp*/
+   margin-bottom: 1.146vh;
+   margin-top: 5.1vh;
+}
+#pageContentRegistration .list-block .item-inner {
+    display: block;
+    text-align:left;
+    
+}
+#pageContentRegistration  .icon {
+      margin-bottom: 2.55vh;
+       margin-top: 5.1vh;
+}
+#pageContentRegistration .label{
+    width: 100%;
+    text-align:left;
+    padding-top: 2.55vh; /*16dp*/ 
+    color: #a0a8ac;
+    line-height: 1.1;
+    padding-bottom: 1.146vh; /*8dp*/ 
+}
+#pageContentRegistration .item-media {
+      width: 5.5vw;
+         margin-left: 2.55vw;
+        margin-right: 4.4625vw; 
+}
+.p1, #pageContentRegistration .list-block .item-inner .r1{
+    height: 2.55vh;/*16dp*/
+    padding-bottom: 1.146vh; /*16dp*/ 
+    margin-left: 0px;
+}
+
+.open-selectgroup{
+    text-align: left;
+    width: 100%;
+    text-decoration: underline;
+}
+.save{
+    color: #ffffff;
+    background: #00897b;
+    border: #00897b; 
+    width: 60px;
+    height:60px;
+    text-align: center;
+    border-radius: 60px;
+    line-height: 70px;
+    margin: 1.146vh;
+}
+.close{
+    color: #90a4ae;
+    background: #ffffff;
+    border: 2px solid #90a4ae; 
+    width: 56px;
+    height:56px;
+    text-align: center;
+    border-radius: 56px;
+    line-height: 60px;
+    display: block;
+     margin: 1.146vh;
+}
+
+.button-container{
+    padding-top: 3.825vh;
+    text-align: center;
+    display: -webkit-flex; 
+    display: flex;
+    justify-content: center;
+}
+.top-routes{
+      display: -webkit-flex; 
+    display: flex;
+    justify-content: space-around;
+    padding-top: 0px;
+}
+.top-routes .right{
+    padding-right: 20px;
+    
+}
+.top-routes .right a{
+    color: #fff;
+}
+.routeblock {
+    background: #ffffff;
+    padding: 15px;
+    margin-bottom: 10px;
+        font-size: 14px;
+}
+.header  {
+    display: -webkit-flex; 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    }
+    .item-status{
+        -webkit-flex-grow: 3; 
+        flex-grow: 3;
+        text-align: right;
+    }
+    .itog {
+    display: -webkit-flex; 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    }
+    .list-block ul::before, .list-block ul::after {
+        background-color: #fff;
+    }
+    .open-selectgroup{
+        padding-left: 15px;
+    }
+    .footeerreg-block{
+        width:100%;
+        height: 3vh;
+        background: #fff;
+        margin-top: -1px;
+    }
+    #reg-form{
+        margin-top: 0px;
+    }
+    .popup-registrationsms input{
+        border: 0px;
+        border-bottom: 1px solid #90a4ae;
+        width: 90%;
+    }
+.popup-standart.phone.popup-registrationsms .content-block{
+        border: 0px;
+        
+    }
+    .popup-standart.phone.popup-registrationsms .content-block p{
+        line-height: 1.5;
+    }
+
+
+.panel .list-block ul{
+	background: #132229;
+	color: #93b5c8;
+	
+	
+}
